@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="108dp"
-    android:height="108dp"
-    android:viewportWidth="108"
-    android:viewportHeight="108">
-    <group
-        android:translateX="27"
-        android:translateY="27">
-        <path
-            android:fillColor="#FFFFFF"
-            android:pathData="M9,36c0,1.66 1.34,3 3,3h3c1.66,0 3,-1.34 3,-3v-3h24v3c0,1.66 1.34,3 3,3h3c1.66,0 3,-1.34 3,-3v-6L48,15c0,-4.97 -4.03,-9 -9,-9H15c-4.97,0 -9,4.03 -9,9l0,15v6zM15,10.5h24c2.48,0 4.5,2.02 4.5,4.5v6H10.5V15c0,-2.48 2.02,-4.5 4.5,-4.5zM15,31.5c-1.66,0 -3,-1.34 -3,-3s1.34,-3 3,-3 3,1.34 3,3 -1.34,3 -3,3zM39,31.5c-1.66,0 -3,-1.34 -3,-3s1.34,-3 3,-3 3,1.34 3,3 -1.34,3 -3,3z"/>
-    </group>
-</vector>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:width="66dp"
+        android:height="66dp"
+        android:drawable="@drawable/ic_bus_app_logo"
+        android:gravity="center" />
+</layer-list>
