@@ -1,0 +1,484 @@
+{
+  "constants": [
+    {
+      "type": "null"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "int",
+      "value": 57472
+    },
+    {
+      "type": "int",
+      "value": 57490
+    },
+    {
+      "type": "int",
+      "value": 57495
+    },
+    {
+      "type": "int",
+      "value": 57496
+    },
+    {
+      "type": "int",
+      "value": 57500
+    },
+    {
+      "type": "int",
+      "value": 57522
+    },
+    {
+      "type": "int",
+      "value": 57657
+    },
+    {
+      "type": "int",
+      "value": 57706
+    },
+    {
+      "type": "int",
+      "value": 57785
+    },
+    {
+      "type": "int",
+      "value": 57813
+    },
+    {
+      "type": "int",
+      "value": 58136
+    },
+    {
+      "type": "int",
+      "value": 58162
+    },
+    {
+      "type": "int",
+      "value": 58172
+    },
+    {
+      "type": "int",
+      "value": 58332
+    },
+    {
+      "type": "int",
+      "value": 58372
+    },
+    {
+      "type": "int",
+      "value": 58727
+    },
+    {
+      "type": "int",
+      "value": 58833
+    },
+    {
+      "type": "int",
+      "value": 58873
+    },
+    {
+      "type": "int",
+      "value": 58874
+    },
+    {
+      "type": "int",
+      "value": 58917
+    },
+    {
+      "type": "int",
+      "value": 62841
+    },
+    {
+      "type": "int",
+      "value": 984417
+    },
+    {
+      "type": "string",
+      "value": "MaterialIcons"
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 3,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 4,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 2
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 5,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 6,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 7,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 2
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 8,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 9,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 10,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 11,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 12,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 13,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 14,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 15,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 16,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 17,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 18,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 19,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 20,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 21,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 22,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 23,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 2
+      }
+    },
+    {
+      "definition_index": 0,
+      "type": "instance",
+      "value": {
+        "codePoint": 24,
+        "fontFamily": 25,
+        "fontFamilyFallback": 0,
+        "fontPackage": 0,
+        "matchTextDirection": 1
+      }
+    }
+  ],
+  "definitions": [
+    {
+      "path": [
+        {
+          "kind": "class",
+          "name": "IconData"
+        }
+      ],
+      "uri": "package:flutter/src/widgets/icon_data.dart"
+    }
+  ],
+  "loading_units": [
+    {
+      "name": "main.dart.js"
+    }
+  ],
+  "uses": {
+    "instances": [
+      {
+        "definition_index": 0,
+        "uses": [
+          {
+            "constant_index": 26,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 27,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 28,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 29,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 30,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 31,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 32,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 33,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 34,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 35,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 36,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 37,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 38,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 39,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 40,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 41,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 42,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 43,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 44,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 45,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 46,
+            "loading_unit_index": 0,
+            "type": "constant"
+          },
+          {
+            "constant_index": 47,
+            "loading_unit_index": 0,
+            "type": "constant"
+          }
+        ]
+      }
+    ]
+  }
+}
