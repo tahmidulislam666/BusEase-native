@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
@@ -43,7 +44,8 @@ fun AutocompleteStopInput(
     onValueChange: (String) -> Unit,
     suggestions: List<String>,
     modifier: Modifier = Modifier,
-    testTagPrefix: String = "stop_input"
+    testTagPrefix: String = "stop_input",
+    trailingAction: (@Composable () -> Unit)? = null
 ) {
     var isFocused by remember { mutableStateOf(false) }
 
@@ -69,15 +71,20 @@ fun AutocompleteStopInput(
                 )
             },
             trailingIcon = {
-                if (value.isNotEmpty()) {
-                    IconButton(
-                        onClick = { onValueChange("") },
-                        modifier = Modifier.testTag("${testTagPrefix}_clear")
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Clear,
-                            contentDescription = "Clear input"
-                        )
+                Row {
+                    if (trailingAction != null) {
+                        trailingAction()
+                    }
+                    if (value.isNotEmpty()) {
+                        IconButton(
+                            onClick = { onValueChange("") },
+                            modifier = Modifier.testTag("${testTagPrefix}_clear")
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Clear,
+                                contentDescription = "Clear input"
+                            )
+                        }
                     }
                 }
             },

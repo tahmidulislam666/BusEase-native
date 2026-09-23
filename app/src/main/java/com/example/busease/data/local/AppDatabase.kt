@@ -39,7 +39,12 @@ interface FavoriteBusDao {
     suspend fun deleteFavorite(routeId: String)
 }
 
-@Database(entities = [FavoriteBusEntity::class], version = 2, exportSchema = false)
+@Database(
+    entities = [FavoriteBusEntity::class, CachedBusRouteEntity::class],
+    version = 3,
+    exportSchema = false
+)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun favoriteBusDao(): FavoriteBusDao
+    abstract fun cachedBusRouteDao(): CachedBusRouteDao
 }

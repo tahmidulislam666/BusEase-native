@@ -46,6 +46,9 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.busease.data.AppLanguage
+import com.example.busease.data.AppSettings
+import com.example.busease.data.AppStrings
 import com.example.busease.data.model.FareItem
 import com.example.busease.data.repository.BusRepository
 import com.example.busease.ui.components.AutocompleteStopInput
@@ -55,6 +58,8 @@ import kotlinx.coroutines.launch
 fun BusFareSearchScreen() {
     val context = LocalContext.current
     val repository = remember { BusRepository.getInstance(context) }
+    val appSettings = remember { AppSettings.getInstance(context) }
+    val lang = appSettings.appLanguage
     val scope = rememberCoroutineScope()
 
     var fromStop by remember { mutableStateOf("") }
@@ -109,12 +114,12 @@ fun BusFareSearchScreen() {
                         Spacer(modifier = Modifier.width(12.dp))
                         Column {
                             Text(
-                                text = "BRTA Official Bus Fare",
+                                text = if (lang == AppLanguage.BANGLA) "বিআরটিএ সরকারি বাস ভাড়া" else "BRTA Official Bus Fare",
                                 style = MaterialTheme.typography.titleLarge,
                                 fontWeight = FontWeight.Bold
                             )
                             Text(
-                                text = "Calculate authorized ticket fares and distance in Dhaka",
+                                text = if (lang == AppLanguage.BANGLA) "ঢাকার সরকার নির্ধারিত কিলোমিটার ভিত্তিক বাস ভাড়া ও দূরত্ব হিসাব" else "Calculate authorized ticket fares and distance in Dhaka",
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.outline
                             )
@@ -125,7 +130,7 @@ fun BusFareSearchScreen() {
 
                     // From input
                     AutocompleteStopInput(
-                        label = "Departure Stop (হতে)",
+                        label = if (lang == AppLanguage.BANGLA) "যাত্রা শুরুর স্টপ (হতে)" else "Departure Stop (হতে)",
                         value = fromStop,
                         onValueChange = {
                             fromStop = it
@@ -159,7 +164,7 @@ fun BusFareSearchScreen() {
 
                     // To input
                     AutocompleteStopInput(
-                        label = "Arrival Stop (পর্যন্ত)",
+                        label = if (lang == AppLanguage.BANGLA) "গন্তব্য স্টপ (পর্যন্ত)" else "Arrival Stop (পর্যন্ত)",
                         value = toStop,
                         onValueChange = {
                             toStop = it
@@ -185,7 +190,7 @@ fun BusFareSearchScreen() {
                         Icon(Icons.Default.Calculate, contentDescription = null)
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
-                            text = "Check Fare Rate",
+                            text = if (lang == AppLanguage.BANGLA) "ভাড়া হিসাব করুন" else "Check Fare Rate",
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold
                         )

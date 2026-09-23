@@ -38,6 +38,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.busease.data.AppLanguage
+import com.example.busease.data.AppSettings
+import com.example.busease.data.AppStrings
 import com.example.busease.data.model.BusRoute
 import com.example.busease.data.repository.BusRepository
 import com.example.busease.ui.components.BusCard
@@ -49,6 +52,8 @@ fun BusNameSearchScreen(
 ) {
     val context = LocalContext.current
     val repository = remember { BusRepository.getInstance(context) }
+    val appSettings = remember { AppSettings.getInstance(context) }
+    val lang = appSettings.appLanguage
     val scope = rememberCoroutineScope()
 
     var query by remember { mutableStateOf("") }
@@ -80,8 +85,18 @@ fun BusNameSearchScreen(
             OutlinedTextField(
                 value = query,
                 onValueChange = { query = it },
-                label = { Text("Search by bus name or service") },
-                placeholder = { Text("e.g. Achim, বিহঙ্গ, Sitting...") },
+                label = {
+                    Text(
+                        if (lang == AppLanguage.BANGLA) "বাসের নাম বা সার্ভিস দিয়ে খুঁজুন"
+                        else "Search by bus name or service"
+                    )
+                },
+                placeholder = {
+                    Text(
+                        if (lang == AppLanguage.BANGLA) "যেমন: অছিম, বিহঙ্গ, সিটিং..."
+                        else "e.g. Achim, বিহঙ্গ, Sitting..."
+                    )
+                },
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Search,
@@ -118,7 +133,7 @@ fun BusNameSearchScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "Buses Found (${busList.size})",
+                    text = if (lang == AppLanguage.BANGLA) "বাস পাওয়া গেছে (${busList.size})" else "Buses Found (${busList.size})",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
@@ -152,7 +167,7 @@ fun BusNameSearchScreen(
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
-                            text = "No buses matching '$query'",
+                            text = if (lang == AppLanguage.BANGLA) "‘$query’ নামে কোনো বাস পাওয়া যায়নি" else "No buses matching '$query'",
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.SemiBold
                         )

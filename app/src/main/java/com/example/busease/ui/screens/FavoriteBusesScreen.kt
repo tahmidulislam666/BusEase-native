@@ -29,6 +29,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.busease.data.AppLanguage
+import com.example.busease.data.AppSettings
+import com.example.busease.data.AppStrings
 import com.example.busease.data.model.BusRoute
 import com.example.busease.data.repository.BusRepository
 import com.example.busease.ui.components.BusCard
@@ -40,6 +43,8 @@ fun FavoriteBusesScreen(
 ) {
     val context = LocalContext.current
     val repository = remember { BusRepository.getInstance(context) }
+    val appSettings = remember { AppSettings.getInstance(context) }
+    val lang = appSettings.appLanguage
     val scope = rememberCoroutineScope()
 
     val favorites by repository.getAllFavorites().collectAsState(initial = emptyList())
@@ -54,12 +59,12 @@ fun FavoriteBusesScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Saved Favorite Buses (${favorites.size})",
+                text = if (lang == AppLanguage.BANGLA) "সংরক্ষিত প্রিয় বাস (${favorites.size})" else "Saved Favorite Buses (${favorites.size})",
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = "Quick access to the transit routes you take most often",
+                text = if (lang == AppLanguage.BANGLA) "আপনার নিয়মিত যাতায়াতের বাসগুলো এখানে দ্রুত খুঁজে পাবেন" else "Quick access to the transit routes you take most often",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.outline
             )
@@ -84,12 +89,12 @@ fun FavoriteBusesScreen(
                         )
                         Spacer(modifier = Modifier.height(12.dp))
                         Text(
-                            text = "No saved buses yet",
+                            text = if (lang == AppLanguage.BANGLA) "কোনো বাস সংরক্ষণ করা হয়নি" else "No saved buses yet",
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.SemiBold
                         )
                         Text(
-                            text = "Tap the heart icon on any bus route to pin it here",
+                            text = if (lang == AppLanguage.BANGLA) "যেকোনো বাসের কার্ডে থাকা লাভ আইকনে চাপ দিয়ে সংরক্ষণ করুন" else "Tap the heart icon on any bus route to pin it here",
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.outline
                         )

@@ -42,7 +42,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.res.painterResource
 import coil.compose.AsyncImage
+import com.example.busease.R
 import com.example.busease.data.model.BusRoute
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -52,7 +54,9 @@ fun BusCard(
     isFavorite: Boolean,
     onFavoriteToggle: () -> Unit,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    nearbyStopHighlight: String? = null,
+    nearbyDistanceMeters: Double? = null
 ) {
     Card(
         shape = RoundedCornerShape(18.dp),
@@ -70,7 +74,7 @@ fun BusCard(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                // Bus thumbnail or icon
+                // Bus thumbnail with reliable fallback
                 Box(
                     modifier = Modifier
                         .size(54.dp)
@@ -78,23 +82,17 @@ fun BusCard(
                         .background(MaterialTheme.colorScheme.primaryContainer),
                     contentAlignment = Alignment.Center
                 ) {
-                    if (bus.image.isNotBlank() && bus.image.startsWith("http")) {
-                        AsyncImage(
-                            model = bus.image,
-                            contentDescription = "${bus.englishName} image",
-                            contentScale = ContentScale.Crop,
-                            modifier = Modifier
-                                .size(54.dp)
-                                .clip(RoundedCornerShape(12.dp))
-                        )
-                    } else {
-                        Icon(
-                            imageVector = Icons.Default.DirectionsBus,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.size(30.dp)
-                        )
-                    }
+                    AsyncImage(
+                        model = bus.image.ifBlank { R.drawable.dhaka_bus_avatar_1790080583578 },
+                        placeholder = painterResource(R.drawable.dhaka_bus_avatar_1790080583578),
+                        error = painterResource(R.drawable.dhaka_bus_avatar_1790080583578),
+                        fallback = painterResource(R.drawable.dhaka_bus_avatar_1790080583578),
+                        contentDescription = "${bus.englishName} image",
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .size(54.dp)
+                            .clip(RoundedCornerShape(12.dp))
+                    )
                 }
 
                 Spacer(modifier = Modifier.width(12.dp))
@@ -172,6 +170,46 @@ fun BusCard(
                     color = MaterialTheme.colorScheme.primary,
                     fontWeight = FontWeight.Bold
                 )
+            }
+
+            // Nearby stop indicator badge (when browsing nearby routes within 1km)
+            if (nearbyStopHighlight != null) {
+                Spacer(modifier = Modifier.height(6.dp))
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(
+                            color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f),
+                            shape = RoundedCornerShape(8.dp)
+                        )
+                        .padding(horizontal = 10.dp, vertical = 5.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Route,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(14.dp)
+                    )
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text(
+                        text = "1km Stop: $nearbyStopHighlight",
+                        style = MaterialTheme.typography.labelSmall,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.weight(1f)
+                    )
+                    if (nearbyDistanceMeters != null) {
+                        Text(
+                            text = "~${nearbyDistanceMeters.toInt()}m",
+                            style = MaterialTheme.typography.labelSmall,
+                            fontWeight = FontWeight.SemiBold,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                }
             }
 
             if (bus.time.isNotBlank()) {
