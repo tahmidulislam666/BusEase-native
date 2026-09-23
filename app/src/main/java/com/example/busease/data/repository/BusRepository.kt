@@ -335,9 +335,16 @@ class BusRepository private constructor(private val context: Context) {
         if (fromClean.isEmpty() && toClean.isEmpty()) return@withContext emptyList()
 
         fares.filter { item ->
-            val matchFrom = fromClean.isEmpty() || item.from.lowercase().contains(fromClean)
-            val matchTo = toClean.isEmpty() || item.to.lowercase().contains(toClean)
-            matchFrom && matchTo
+            val f = item.from.lowercase()
+            val t = item.to.lowercase()
+            if (fromClean.isNotEmpty() && toClean.isNotEmpty()) {
+                // Check forward (from -> to) or reverse (to -> from)
+                (f.contains(fromClean) && t.contains(toClean)) || (f.contains(toClean) && t.contains(fromClean))
+            } else if (fromClean.isNotEmpty()) {
+                f.contains(fromClean) || t.contains(fromClean)
+            } else {
+                f.contains(toClean) || t.contains(toClean)
+            }
         }
     }
 

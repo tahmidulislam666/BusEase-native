@@ -80,10 +80,10 @@ fun RouteSearchScreen(
     val favorites by repository.getAllFavorites().collectAsState(initial = emptyList())
     val favoriteRouteIds = remember(favorites) { favorites.map { it.routeId }.toSet() }
 
-    fun performSearch() {
+    fun performSearch(start: String = startLocation, end: String = endLocation) {
         scope.launch {
             isSearching = true
-            searchResults = repository.searchBusesBetween(startLocation, endLocation)
+            searchResults = repository.searchBusesBetween(start, end)
             isSearching = false
             hasSearched = true
         }
@@ -97,15 +97,15 @@ fun RouteSearchScreen(
             val targetLon = loc?.longitude ?: 90.3888
             val nearby = DhakaTransitCoordinates.getStopsWithinRadius(targetLat, targetLon, 1000.0)
             val closest = nearby.firstOrNull()?.first
-            if (closest != null) {
+            val matchedStop = if (closest != null) {
                 // Find matching stop name with proper case from allStops if possible
-                val matched = allStops.firstOrNull { it.equals(closest, ignoreCase = true) } ?: closest.replaceFirstChar { it.uppercase() }
-                startLocation = matched
+                allStops.firstOrNull { it.equals(closest, ignoreCase = true) } ?: closest.replaceFirstChar { it.uppercase() }
             } else {
-                startLocation = "Farmgate"
+                "Farmgate"
             }
+            startLocation = matchedStop
             isDetectingLocation = false
-            performSearch()
+            performSearch(start = matchedStop, end = endLocation)
         }
     }
 
@@ -214,9 +214,11 @@ fun RouteSearchScreen(
                         IconButton(
                             onClick = {
                                 val temp = startLocation
-                                startLocation = endLocation
-                                endLocation = temp
-                                performSearch()
+                                val newStart = endLocation
+                                val newEnd = temp
+                                startLocation = newStart
+                                endLocation = newEnd
+                                performSearch(newStart, newEnd)
                             },
                             modifier = Modifier.testTag("swap_locations_button")
                         ) {

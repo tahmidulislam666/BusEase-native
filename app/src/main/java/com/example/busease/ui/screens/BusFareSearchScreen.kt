@@ -73,10 +73,10 @@ fun BusFareSearchScreen() {
         fareStops = repository.getFareStops()
     }
 
-    fun calculateFare() {
+    fun calculateFare(from: String = fromStop, to: String = toStop) {
         scope.launch {
             isCalculating = true
-            fareResults = repository.searchFares(fromStop, toStop)
+            fareResults = repository.searchFares(from, to)
             isCalculating = false
             hasCalculated = true
         }
@@ -148,9 +148,11 @@ fun BusFareSearchScreen() {
                         IconButton(
                             onClick = {
                                 val temp = fromStop
-                                fromStop = toStop
-                                toStop = temp
-                                calculateFare()
+                                val newFrom = toStop
+                                val newTo = temp
+                                fromStop = newFrom
+                                toStop = newTo
+                                calculateFare(newFrom, newTo)
                             },
                             modifier = Modifier.testTag("fare_swap_button")
                         ) {
